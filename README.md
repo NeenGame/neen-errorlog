@@ -1,4 +1,4 @@
-# neen-atlasmap
+# neen-errorlog
 
 ![champ](https://cdn.discordapp.com/attachments/1054072664265859162/1184964319608328202/test.png?ex=658de305&is=657b6e05&hm=6a91521f54fd978752064ab35bd8b88ba19dec71b1eb72d5d9212e837565d840&)
 
