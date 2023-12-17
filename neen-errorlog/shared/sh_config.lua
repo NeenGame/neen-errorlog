@@ -7,4 +7,8 @@ SHERROR = {
     'Scan',
     'Argume'
   },
+  WhiteListedErrors = {
+    'SCRI',
+    'Invoke'
+  },
 }

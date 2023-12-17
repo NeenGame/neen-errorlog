@@ -1,8 +1,11 @@
 RegisterNetEvent('__cfx_internal:serverPrint')
 AddEventHandler('__cfx_internal:serverPrint', function(msg)
     if (msg == "") then return end
-    local BlER = CheckForBlacklistedErrors(string.sub(msg, 1, 6))
+    local str = string.sub(msg, 1, 6)
+    local BlER = CheckForBlacklistedErrors(str)
+    local WLER = CheckForWhitelistedErrors(str)
     if BlER then return end
+    if not WLER then return end
     local PlayerName = GetPlayerName(PlayerId())
     local PlayerId = GetPlayerServerId(PlayerId())
     print('[SERVER SIDE ERROR]: \n'..msg)
@@ -14,6 +17,15 @@ end)
 function CheckForBlacklistedErrors(str)
     for i=1,#SHERROR.BlacklistedWords do
         if string.match(str, SHERROR.BlacklistedWords[i]) then
+            return true
+        end
+    end
+    return false
+end
+
+function CheckForWhitelistedErrors(str)
+    for i=1,#SHERROR.WhiteListedErrors do
+        if string.match(str, SHERROR.WhiteListedErrors[i]) then
             return true
         end
     end
